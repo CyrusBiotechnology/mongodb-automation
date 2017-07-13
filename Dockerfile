@@ -14,6 +14,9 @@ VOLUME /var/lib/mongodb-mms-automation
 ADD setup/${AGENT_PACKAGE} /root/
 RUN dpkg -i /root/${AGENT_PACKAGE}
 
+# Add config file
+ADD local.config /opt/mongodb-mms-automation/
+
 # MongoDB data volume
 VOLUME /data
 RUN chown mongodb:mongodb /data
